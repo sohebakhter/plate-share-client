@@ -10,13 +10,14 @@ import FoodDetails from "../Components/FoodDetails";
 import ManageMyFoods from "../Components/ManageMyFoods";
 import UpdateFood from "../Components/UpdateFood";
 import Loading from "../Components/Loading";
+import Error404 from "../Components/Error404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
     hydrateFallbackElement: <Loading></Loading>,
-    errorElement: <p>error</p>,
+    errorElement: <Error404></Error404>,
     children: [
       {
         index: true,

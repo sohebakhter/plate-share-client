@@ -3,19 +3,26 @@ import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import Loading from "./Loading";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axiosSecure.get(`/foods?email=${user.email}`).then((data) => {
       // console.log(data.data);
       setFoods(data.data);
+      setLoading(false);
     });
   }, [axiosSecure, user.email]);
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",

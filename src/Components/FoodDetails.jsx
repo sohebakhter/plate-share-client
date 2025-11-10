@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import Loading from "./Loading";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -25,13 +26,7 @@ const FoodDetails = () => {
   }, [id, user, navigate, axiosSecure]);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-80">
-        <p className="text-lg font-semibold animate-pulse">
-          Loading food details...
-        </p>
-      </div>
-    );
+    return <Loading></Loading>;
   }
 
   if (!food) {
