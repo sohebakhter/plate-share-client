@@ -7,6 +7,7 @@ const Login = () => {
   const { signInUser, googleSignIn } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  // console.log(location);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.message);
+        toast.error("login failed");
       });
   };
 

@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link, useLocation } from "react-router";
 import { use } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Context/AuthContext";
@@ -7,6 +7,7 @@ import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { createUser, googleSignIn } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +39,7 @@ const Register = () => {
           });
 
         toast.success("Registration successfull");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

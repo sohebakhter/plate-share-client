@@ -33,8 +33,9 @@ const FoodCard = ({ food }) => {
         </div>
 
         <p className="text-gray-700 text-sm">
-          <span className="font-semibold">Serves:</span> <span className="text-green-600">{food.foodQuantity}</span> People
-  </p>
+          <span className="font-semibold">Serves:</span>{" "}
+          <span className="text-green-600">{food.foodQuantity}</span> People
+        </p>
         <p className="text-gray-700 text-sm">
           <span className="font-semibold">Location:</span> {food.pickupLocation}
         </p>

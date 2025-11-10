@@ -20,8 +20,6 @@ const AvailableFoods = () => {
       });
   }, [axiosSecure]);
 
-  
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[60vh]">

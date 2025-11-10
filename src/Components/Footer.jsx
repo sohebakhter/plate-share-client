@@ -1,6 +1,7 @@
 import { Link } from "react-router";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -40,9 +41,9 @@ const Footer = () => {
           <Link
             to="https://twitter.com"
             target="_blank"
-            className="hover:text-sky-400 transition"
+            className="hover:text-black transition"
           >
-            <FaTwitter />
+            <FaXTwitter />
           </Link>
         </div>
       </div>
