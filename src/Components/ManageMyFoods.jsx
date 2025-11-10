@@ -28,7 +28,7 @@ const ManageMyFoods = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/foods/${id}`).then((data) => {
-          if (data.data.deletedCount > 0) {
+          if (data.data.deletedCount) {
             Swal.fire("Deleted!", "Your food has been deleted.", "success");
             setFoods(foods.filter((food) => food._id !== id));
           }
