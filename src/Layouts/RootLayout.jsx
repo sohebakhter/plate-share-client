@@ -1,12 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const RootLayout = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto min-h-screen flex flex-col">
       <Navbar></Navbar>
-      <Outlet></Outlet>
+      <div className="flex-1">
+        <Outlet></Outlet>
+      </div>
+      <Footer></Footer>
     </div>
   );
 };
