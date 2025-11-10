@@ -6,6 +6,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 const UpdateFood = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
+
   const [food, setFood] = useState({});
 
   useEffect(() => {
@@ -17,27 +18,27 @@ const UpdateFood = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    const form = e.target;
 
+    const name = e.target.foodName.value;
+    const quantity = e.target.foodQuantity.value;
+    const location = e.target.pickupLocation.value;
+    const date = e.target.expireDate.value;
+    const notes = e.target.notes.value;
+
+    console.log(name, quantity, location, date, notes);
     const updatedFood = {
-      food_name: form.foodName.value,
-      food_quantity: form.foodQuantity.value,
-      pickup_location: form.pickupLocation.value,
-      expire_date: form.expireDate.value,
-      notes: form.notes.value,
+      foodName: name,
+      foodQuantity: Number(quantity),
+      pickupLocation: location,
+      expireDate: date,
+      notes: notes,
     };
 
-    fetch(`/foods/${food._id}`, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(updatedFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          Swal.fire("Success!", "Food updated successfully!", "success");
-        }
-      });
+    axiosSecure.patch(`/foods/${food?._id}`, updatedFood).then((data) => {
+      if (data.data.modifiedCount) {
+        Swal.fire("Success!", "Food updated successfully!", "success");
+      }
+    });
   };
 
   return (
