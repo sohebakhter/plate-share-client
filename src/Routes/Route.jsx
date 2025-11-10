@@ -9,11 +9,14 @@ import AvailableFoods from "../Components/AvailableFoods";
 import FoodDetails from "../Components/FoodDetails";
 import ManageMyFoods from "../Components/ManageMyFoods";
 import UpdateFood from "../Components/UpdateFood";
+import Loading from "../Components/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayout,
+    hydrateFallbackElement: <Loading></Loading>,
+    errorElement: <p>error</p>,
     children: [
       {
         index: true,
