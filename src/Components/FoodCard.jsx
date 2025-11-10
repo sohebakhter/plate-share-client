@@ -36,6 +36,19 @@ const FoodCard = ({ food }) => {
           <span className="font-semibold">Serves:</span>{" "}
           <span className="text-green-600">{food.foodQuantity}</span> People
         </p>
+
+        <p className="text-gray-700 text-sm">
+          <span className="font-semibold ">Status: </span>
+          <span
+            className={`${
+              food.food_status == "Available"
+                ? "text-green-600"
+                : "text-red-600"
+            }`}
+          >
+            {food.food_status}
+          </span>
+        </p>
         <p className="text-gray-700 text-sm">
           <span className="font-semibold">Location:</span> {food.pickupLocation}
         </p>

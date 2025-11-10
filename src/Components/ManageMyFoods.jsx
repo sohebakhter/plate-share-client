@@ -7,22 +7,23 @@ import Loading from "./Loading";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
+  console.log(user.email);
   const axiosSecure = useAxiosSecure();
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axiosSecure.get(`/foods?email=${user.email}`).then((data) => {
+    axiosSecure.get(`/foods-manage?email=${user?.email}`).then((data) => {
       // console.log(data.data);
       setFoods(data.data);
       setLoading(false);
     });
-  }, [axiosSecure, user.email]);
+  }, [axiosSecure, user?.email]);
 
   if (loading) {
     return <Loading></Loading>;
   }
-  
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
