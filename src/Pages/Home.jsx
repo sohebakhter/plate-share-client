@@ -7,7 +7,9 @@ import FeaturedFoods from "../Components/FeaturedFoods";
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
+      <div >
+        <Banner></Banner>
+      </div>
       <FeaturedFoods></FeaturedFoods>
       <HowItWorks></HowItWorks>
       <OurMission></OurMission>

@@ -22,20 +22,22 @@ const FeaturedFoods = () => {
   }
 
   return (
-    <div>
-      <h1 className="text-5xl font-bold">Featured Foods</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {foods.map((food) => (
-          <FoodCard key={food._id} food={food}></FoodCard>
-        ))}
-      </div>
-      <div className="text-center">
-        <Link
-          to="/foods"
-          className="btn mt-3 w-30 text-white bg-green-600 hover:bg-green-800"
-        >
-          Show All
-        </Link>
+    <div className="bg-gray-200 p-5">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl text-green-600 font-bold mb-5">Featured Foods</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {foods.map((food) => (
+            <FoodCard key={food._id} food={food}></FoodCard>
+          ))}
+        </div>
+        <div className="text-center">
+          <Link
+            to="/foods"
+            className="btn mt-3 w-30 text-white bg-green-600 hover:bg-green-700"
+          >
+            Show All
+          </Link>
+        </div>
       </div>
     </div>
   );

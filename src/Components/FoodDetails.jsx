@@ -7,10 +7,11 @@ import Loading from "./Loading";
 const FoodDetails = () => {
   const { id } = useParams();
   const [food, setFood] = useState(null);
-  console.log(food);
+
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   const showModalRef = useRef(null);
+  const [requests, setRequests] = useState([]);
 
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -26,12 +27,20 @@ const FoodDetails = () => {
       setLoading(false);
     });
   }, [id, user, navigate, axiosSecure]);
+  ///////////////////////
+  useEffect(() => {
+    if (!food?._id || !user?.email) return;
+
+    axiosSecure
+      .get(`/food-requests/${food?._id}?email=${user.email}`)
+      .then((data) => setRequests(data.data));
+  }, [food?._id, user?.email, axiosSecure]);
 
   if (loading) {
     return <Loading></Loading>;
   }
 
-  if (!food) {
+  if (!loading && !food) {
     return (
       <div className="text-center text-xl font-bold text-red-500 mt-20">
         Food Not Found!
@@ -40,10 +49,9 @@ const FoodDetails = () => {
   }
 
   const handleModalOn = () => {
-    // open modal form to request food
     showModalRef.current.showModal();
-    console.log("Request Food clicked");
   };
+
   const handleModalOff = () => {
     showModalRef.current.close();
   };
@@ -73,8 +81,37 @@ const FoodDetails = () => {
     });
   };
 
+  //handle accept-----------
+  const handleAccept = async (req) => {
+    await axiosSecure.patch(`/food-requests/accept/${req._id}`, {
+      foodId: food._id,
+    });
+
+    // updating UI
+    setRequests((prev) =>
+      prev.map((result) =>
+        result._id === req._id ? { ...result, status: "accepted" } : result
+      )
+    );
+
+    // updating food status in UI
+    setFood((prev) => ({ ...prev, food_status: "Donated" }));
+  };
+
+  //handle reject ----------------
+  const handleReject = async (req) => {
+    await axiosSecure.patch(`/food-requests/reject/${req._id}`);
+
+    setRequests((prev) =>
+      prev.map((result) =>
+        result._id === req._id ? { ...result, status: "rejected" } : result
+      )
+    );
+  };
+
   return (
     <div>
+      {/* food details */}
       <div className="max-w-4xl mx-auto p-5 md:p-10">
         <div className="bg-white rounded-lg shadow-lg p-6 border">
           <img
@@ -121,7 +158,6 @@ const FoodDetails = () => {
           </button>
         </div>
       </div>
-
       {/* modal part for request food */}
       <dialog ref={showModalRef} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
@@ -166,6 +202,83 @@ const FoodDetails = () => {
           </div>
         </div>
       </dialog>
+      {/* -------------------------------- */}
+      {user?.email === food.donorEmail && (
+        <div className="overflow-x-auto">
+          {requests.length === 0 ? (
+            <p className="font-bold text-xl">No Requests Found</p>
+          ) : (
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Serial no.</th>
+                  <th>Requester</th>
+                  <th>Location & Reason</th>
+                  <th>Contact No.</th>
+                  <th>Status</th>
+                  <th>accept</th>
+                  <th>reject</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row 1 */}
+                {requests.map((req, index) => (
+                  <tr key={req._id}>
+                    <th>{index + 1}</th>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle h-12 w-12">
+                            <img
+                              src={req.userPhoto}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <div className="font-bold">{req.userName}</div>
+                          <div className="text-sm opacity-50">
+                            {req.userEmail}
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      {req.location}
+                      <br />
+                      <span className="badge badge-ghost badge-sm">
+                        {req.reason}
+                      </span>
+                    </td>
+                    <td>{req.contact}</td>
+                    <td className="font-bold text-blue-600">{req.status}</td>
+                    <th>
+                      <button
+                        onClick={() => handleAccept(req)}
+                        disabled={req.status !== "pending"}
+                        className="btn btn-outline btn-success"
+                      >
+                        Accept
+                      </button>
+                    </th>
+
+                    <th>
+                      <button
+                        onClick={() => handleReject(req)}
+                        disabled={req.status !== "pending"}
+                        className="btn btn-outline btn-error"
+                      >
+                        Reject
+                      </button>
+                    </th>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      )}
     </div>
   );
 };

@@ -35,67 +35,75 @@ const AddFood = () => {
       console.log(data.data);
       if (data.data.insertedId) {
         toast.success("food added successfully");
+        e.target.reset();
       }
     });
   };
-
+  //  style={{ backgroundImage: "url('/public/AbstractPaper.svg')" }} h-[600px] bg-cover bg-center flex items-center justify-center
   return (
-    <form
-      onSubmit={handleAddFood}
-      className="space-y-4 p-4 max-w-md mx-auto border rounded-xl"
+    <div
+      className="h-[700px] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/public/wow.png')" }}
     >
-      <input
-        type="text"
-        name="foodName"
-        placeholder="Food Name"
-        required
-        className="w-full border p-2 rounded"
-      />
+      <div className="max-w-7xl mx-auto mt-5 ">
+        <form
+          onSubmit={handleAddFood}
+          className="space-y-4 p-4 max-w-md mx-auto border rounded-xl text-white"
+        >
+          <input
+            type="text"
+            name="foodName"
+            placeholder="Food Name "
+            required
+            className="w-full border p-2 rounded "
+          />
 
-      <input
-        type="url"
-        name="foodImage"
-        placeholder="Food Image"
-        required
-        className="w-full border p-2 rounded"
-      />
+          <input
+            type="url"
+            name="foodImage"
+            placeholder="Food Image"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-      <input
-        type="number"
-        name="foodQuantity"
-        placeholder="Serves how many?"
-        required
-        className="w-full border p-2 rounded"
-      />
+          <input
+            type="number"
+            name="foodQuantity"
+            placeholder="Serves how many?"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-      <input
-        type="text"
-        name="pickupLocation"
-        placeholder="Pickup Location"
-        required
-        className="w-full border p-2 rounded"
-      />
+          <input
+            type="text"
+            name="pickupLocation"
+            placeholder="Pickup Location"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-      <input
-        type="date"
-        name="expireDate"
-        required
-        className="w-full border p-2 rounded"
-      />
+          <input
+            type="date"
+            name="expireDate"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-      <textarea
-        name="notes"
-        placeholder="Additional Notes"
-        className="w-full border p-2 rounded"
-      />
+          <textarea
+            name="notes"
+            placeholder="Additional Notes"
+            className="w-full border p-2 rounded"
+          />
 
-      <button
-        type="submit"
-        className="bg-blue-600 text-white w-full p-2 rounded"
-      >
-        Add Food
-      </button>
-    </form>
+          <button
+            type="submit"
+            className="bg-green-600 text-white w-full p-2 rounded"
+          >
+            Add Food
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 

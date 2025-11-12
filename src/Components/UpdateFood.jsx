@@ -42,7 +42,7 @@ const UpdateFood = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-5 bg-white shadow">
+    <div className="max-w-md mx-auto p-5 bg-white shadow mt-5">
       <h2 className="text-xl font-bold mb-4">Update Food</h2>
 
       <form onSubmit={handleUpdate}>
@@ -73,7 +73,7 @@ const UpdateFood = () => {
           className="textarea textarea-bordered w-full mb-2"
         ></textarea>
 
-        <button className="btn btn-primary w-full">Update Food</button>
+        <button className="btn bg-green-600 text-white w-full">Update Food</button>
       </form>
     </div>
   );

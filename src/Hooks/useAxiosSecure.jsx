@@ -23,11 +23,11 @@ const useAxiosSecure = () => {
       },
       (err) => {
         console.log("inside the interceptor", err);
-        if (err.status === 403 || err.status === 401) {
-          signOutUser().then(() => {
-            navigate("/login");
-          });
-        }
+        // if (err.status === 403 || err.status === 401) {
+        //   signOutUser().then(() => {
+        //     navigate("/login");
+        //   });
+        // }
       }
     );
     return () => {

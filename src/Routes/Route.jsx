@@ -11,6 +11,7 @@ import ManageMyFoods from "../Components/ManageMyFoods";
 import UpdateFood from "../Components/UpdateFood";
 import Loading from "../Components/Loading";
 import Error404 from "../Components/Error404";
+import MyFoodRequests from "../Components/MyFoodRequests";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,14 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5173/update-food/${params.id}`),
+      },
+      {
+        path: "/my-requests",
+        element: (
+          <PrivateRoute>
+            <MyFoodRequests></MyFoodRequests>
+          </PrivateRoute>
+        ),
       },
     ],
   },

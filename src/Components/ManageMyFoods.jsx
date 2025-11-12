@@ -46,7 +46,7 @@ const ManageMyFoods = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container p-4 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-5">Manage My Foods</h2>
 
       <div className="overflow-x-auto">
@@ -73,7 +73,7 @@ const ManageMyFoods = () => {
                 <td>
                   <Link
                     to={`/update-food/${food._id}`}
-                    className="btn btn-sm btn-warning"
+                    className="btn btn-sm btn-warning text-white"
                   >
                     Update
                   </Link>
@@ -82,7 +82,7 @@ const ManageMyFoods = () => {
                 <td>
                   <button
                     onClick={() => handleDelete(food._id)}
-                    className="btn btn-sm btn-error"
+                    className="btn btn-sm btn-error text-white"
                   >
                     Delete
                   </button>

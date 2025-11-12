@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import useAuth from "../Hooks/useAuth";
+import { motion } from "framer-motion";
 
 const FoodCard = ({ food }) => {
   const navigate = useNavigate();
@@ -13,7 +14,24 @@ const FoodCard = ({ food }) => {
     navigate(`/food/${id}`);
   };
   return (
-    <div className="bg-white shadow-md rounded-xl overflow-hidden border hover:shadow-lg transition">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      whileHover={{
+        scale: [null, 1, 1.05],
+        transition: {
+          duration: 0.1,
+          times: [0, 0.6, 1],
+          ease: ["easeInOut", "easeOut"],
+        },
+      }}
+      className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition"
+    >
       <img
         src={food.foodImage}
         alt={food.foodName}
@@ -63,7 +81,7 @@ const FoodCard = ({ food }) => {
           View Details
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
