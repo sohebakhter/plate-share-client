@@ -1,6 +1,6 @@
 🥗 PlateShare – Food Sharing & Donation Platform
 
-Live Website: https://your-client-side-live-url.com
+Live Website: https://plateshare-client.netlify.app
 
 (Replace with your actual deployed link)
 
@@ -36,13 +36,6 @@ Node.js & Express (Backend)
 MongoDB Database
 
 Framer Motion Animations
-
-📸 Home Page Preview
-
-(Add screenshot image link here later)
-Example:
-
-![PlateShare Banner Preview](https://your-image-url.com/banner.jpg)
 
 📂 Project Setup
 1️⃣ Install dependencies
