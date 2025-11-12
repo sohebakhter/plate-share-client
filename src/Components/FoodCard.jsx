@@ -76,7 +76,7 @@ const FoodCard = ({ food }) => {
 
         <button
           onClick={() => handleViewDetails(food._id)}
-          className="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium transition"
+          className="w-full mt-4 bg-green-600 hover:bg-green-700 hover:cursor-pointer text-white py-2 rounded-lg font-medium transition"
         >
           View Details
         </button>

@@ -1,16 +1,60 @@
-# React + Vite
+🥗 PlateShare – Food Sharing & Donation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Website: https://your-client-side-live-url.com
 
-Currently, two official plugins are available:
+(Replace with your actual deployed link)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+PlateShare is a community-driven food donation platform that allows individuals to share their extra food with people in need. The goal is to reduce food waste and spread kindness by connecting donors and receivers in an easy and secure way.
 
-## React Compiler
+🌟 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ User Authentication & Security
+Users can sign up, log in, and securely manage their donation activities.
 
-## Expanding the ESLint configuration
+✅ Post Food for Donation
+Donors can add food with details like quantity, pickup location, and expiry date.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✅ Request System for Food Receivers
+Users can request available food & track the status of their requests.
+
+✅ Real-time Food Status Update
+Food status changes dynamically based on donor acceptance and receiver actions.
+
+✅ Responsive & Modern UI
+Smooth UI with animations, mobile-friendly design, and user-friendly interface.
+
+🚀 Technologies Used
+
+React + Vite
+
+Tailwind CSS
+
+Firebase Authentication
+
+Node.js & Express (Backend)
+
+MongoDB Database
+
+Framer Motion Animations
+
+📸 Home Page Preview
+
+(Add screenshot image link here later)
+Example:
+
+![PlateShare Banner Preview](https://your-image-url.com/banner.jpg)
+
+📂 Project Setup
+1️⃣ Install dependencies
+npm install
+
+2️⃣ Start development server
+npm run dev
+
+🙌 Contribution
+
+Want to improve this project? Feel free to submit pull requests or create issues!
+
+📜 License
+
+This project is open-source and free to use.

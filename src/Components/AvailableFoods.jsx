@@ -30,8 +30,8 @@ const AvailableFoods = () => {
 
   return (
     <div
-      className="h-[700px] bg-cover bg-center items-center justify-center"
-      style={{ backgroundImage: "url('/public/SimpleShiny.svg')" }}
+      className="h-auto bg-cover bg-center items-center justify-center"
+      style={{ backgroundImage: "url('/SimpleShiny.svg')" }}
     >
       <div className="max-w-7xl mx-auto px-4 py-10">
         <h2 className="text-4xl font-bold text-center mb-8 text-white">

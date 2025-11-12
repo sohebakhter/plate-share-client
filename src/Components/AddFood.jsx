@@ -43,7 +43,7 @@ const AddFood = () => {
   return (
     <div
       className="h-[700px] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/public/wow.png')" }}
+      style={{ backgroundImage: "url('/wow.png')" }}
     >
       <div className="max-w-7xl mx-auto mt-5 ">
         <form

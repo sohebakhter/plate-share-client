@@ -78,6 +78,8 @@ const FoodDetails = () => {
       console.log(data.data);
       e.target.reset();
       showModalRef.current.close();
+      const newReq = [...requests, data.data];
+      setRequests(newReq);
     });
   };
 
@@ -113,7 +115,7 @@ const FoodDetails = () => {
     <div>
       {/* food details */}
       <div className="max-w-4xl mx-auto p-5 md:p-10">
-        <div className="bg-white rounded-lg shadow-lg p-6 border">
+        <div className="bg-white rounded-lg shadow-lg p-6 ">
           <img
             src={food.foodImage}
             alt={food.foodName}
@@ -204,7 +206,7 @@ const FoodDetails = () => {
       </dialog>
       {/* -------------------------------- */}
       {user?.email === food.donorEmail && (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto max-w-7xl mx-auto">
           {requests.length === 0 ? (
             <p className="font-bold text-xl">No Requests Found</p>
           ) : (

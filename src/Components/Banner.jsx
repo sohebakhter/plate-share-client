@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div
-      className="h-[600px] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/public/SimpleShiny.svg')" }}
+      className="h-auto bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/SimpleShiny.svg')" }}
     >
-      <section className="w-full min-h-[80vh] flex items-center px-6 py-16">
+      <section className="w-full min-h-[70vh] flex items-center px-6 py-16">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           {/* Left Text Content */}
           <div className="space-y-6">

@@ -33,7 +33,7 @@ const FeaturedFoods = () => {
         <div className="text-center">
           <Link
             to="/foods"
-            className="btn mt-3 w-30 text-white bg-green-600 hover:bg-green-700"
+            className="btn mt-3 w-30 rounded-lg text-white bg-green-600 hover:bg-green-700"
           >
             Show All
           </Link>

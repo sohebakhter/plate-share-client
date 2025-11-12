@@ -47,7 +47,7 @@ const ManageMyFoods = () => {
 
   return (
     <div className="container p-4 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-5">Manage My Foods</h2>
+      <h2 className="text-4xl text-green-600 text-center font-bold mb-5">Manage My Foods</h2>
 
       <div className="overflow-x-auto">
         <table className="table w-full border">

@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5173/food/${params.id}`),
+          fetch(`https://plateshare-client.netlify.app/food/${params.id}`),
       },
       {
         path: "/manage-foods",
@@ -70,7 +70,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5173/update-food/${params.id}`),
+          fetch(
+            `https://plateshare-client.netlify.app/update-food/${params.id}`
+          ),
       },
       {
         path: "/my-requests",

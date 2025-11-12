@@ -5,7 +5,7 @@ const OurMission = () => {
     <div className="p-5">
       {/* Our Mission Section */}
       <section className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-10">
           Our Mission 🌍
         </h2>
         <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed mb-12">
