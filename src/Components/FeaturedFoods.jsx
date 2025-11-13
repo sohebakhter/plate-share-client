@@ -24,10 +24,12 @@ const FeaturedFoods = () => {
   return (
     <div className="bg-gray-200 p-5">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl text-green-600 font-bold mb-5">Featured Foods</h1>
+        <h1 className="text-4xl text-green-600 font-bold mb-5">
+          Featured Foods
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {foods.map((food) => (
-            <FoodCard key={food._id} food={food}></FoodCard>
+            <FoodCard key={food._id} food={food} id={food._id}></FoodCard>
           ))}
         </div>
         <div className="text-center">

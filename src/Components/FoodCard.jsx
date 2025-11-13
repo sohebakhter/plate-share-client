@@ -1,18 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router";
-import useAuth from "../Hooks/useAuth";
+import { Link } from "react-router";
 import { motion } from "framer-motion";
 
-const FoodCard = ({ food }) => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-
-  const handleViewDetails = (id) => {
-    if (!user) {
-      return navigate("/login");
-    }
-    navigate(`/food/${id}`);
-  };
+const FoodCard = ({ food, id }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -74,12 +64,12 @@ const FoodCard = ({ food }) => {
           <span className="font-semibold">Expires:</span> {food.expireDate}
         </p>
 
-        <button
-          onClick={() => handleViewDetails(food._id)}
-          className="w-full mt-4 bg-green-600 hover:bg-green-700 hover:cursor-pointer text-white py-2 rounded-lg font-medium transition"
+        <Link
+          to={`/food/${id}`}
+          className="btn w-full mt-4 bg-green-600 hover:bg-green-700 hover:cursor-pointer text-white py-2 rounded-lg font-medium transition"
         >
           View Details
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
