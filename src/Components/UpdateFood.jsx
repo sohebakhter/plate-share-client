@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const UpdateFood = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
-
   const [food, setFood] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     //getting single food for update
@@ -37,6 +37,7 @@ const UpdateFood = () => {
     axiosSecure.patch(`/foods/${food?._id}`, updatedFood).then((data) => {
       if (data.data.modifiedCount) {
         Swal.fire("Success!", "Food updated successfully!", "success");
+        navigate("/manage-foods");
       }
     });
   };
@@ -73,7 +74,9 @@ const UpdateFood = () => {
           className="textarea textarea-bordered w-full mb-2"
         ></textarea>
 
-        <button className="btn bg-green-600 text-white w-full">Update Food</button>
+        <button className="btn bg-green-600 text-white w-full">
+          Update Food
+        </button>
       </form>
     </div>
   );
