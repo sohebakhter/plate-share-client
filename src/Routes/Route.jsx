@@ -51,8 +51,6 @@ export const router = createBrowserRouter([
             <FoodDetails></FoodDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://plateshare-client.netlify.app/food/${params.id}`),
       },
       {
         path: "/manage-foods",
@@ -69,10 +67,6 @@ export const router = createBrowserRouter([
             <UpdateFood></UpdateFood>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://plateshare-client.netlify.app/update-food/${params.id}`
-          ),
       },
       {
         path: "/my-requests",
