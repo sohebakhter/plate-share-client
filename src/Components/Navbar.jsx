@@ -36,7 +36,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="flex items-center md:gap-5 font-medium">
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row md:gap-5">
             <NavLink to="/" className="hover:text-green-600">
               Home
             </NavLink>
