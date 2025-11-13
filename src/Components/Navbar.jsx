@@ -35,13 +35,15 @@ const Navbar = () => {
             <h1 className="text-3xl font-bold text-green-600">PlateShare</h1>
           </NavLink>
         </div>
-        <div className="flex items-center gap-5 font-medium">
-          <NavLink to="/" className="hover:text-green-600">
-            Home
-          </NavLink>
-          <NavLink to="/foods" className="hover:text-green-600">
-            Available Foods
-          </NavLink>
+        <div className="flex items-center md:gap-5 font-medium">
+          <div className="flex flex-col md:flex-row">
+            <NavLink to="/" className="hover:text-green-600">
+              Home
+            </NavLink>
+            <NavLink to="/foods" className="hover:text-green-600">
+              Available Foods
+            </NavLink>
+          </div>
           {user ? (
             <div className="dropdown dropdown-end">
               <div
