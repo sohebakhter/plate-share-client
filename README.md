@@ -1,6 +1,6 @@
 # PlateShare — Community Food Sharing Platform
 
-![Plate Share Screenshot](https://i.ibb.co/tp5BjYYW/plate-share-v1-vercel-app.png)
+![Plate Share Screenshot]()
 
 **Live Site:**
 [https://plateshare-client.netlify.app/](https://plateshare-client.netlify.app/)  
