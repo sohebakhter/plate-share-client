@@ -1,53 +1,159 @@
-🥗 PlateShare – Food Sharing & Donation Platform
+# PlateShare — Community Food Sharing Platform
 
-Live Website: https://plateshare-client.netlify.app
+![Plate Share Screenshot](https://i.ibb.co/tp5BjYYW/plate-share-v1-vercel-app.png)
 
-(Replace with your actual deployed link)
+**Live Site:**
+[https://plateshare-client.netlify.app/](https://plateshare-client.netlify.app/)  
+**Client Repo:**
+[https://github.com/sohebakhter/plate-share-client](https://github.com/sohebakhter/plate-share-client)  
+**Server Repo:**
+[https://github.com/sohebakhter/plate-share-server](https://github.com/sohebakhter/plate-share-server)
 
-PlateShare is a community-driven food donation platform that allows individuals to share their extra food with people in need. The goal is to reduce food waste and spread kindness by connecting donors and receivers in an easy and secure way.
+---
 
-🌟 Features
+## About the Project
 
-✅ User Authentication & Security
-Users can sign up, log in, and securely manage their donation activities.
+**PlateShare** is a **community-driven food sharing platform** designed to
+reduce food waste and help those in need.  
+Users can share surplus food, browse available items, and request donations
+directly from the platform.  
+Built with the **MERN Stack**, it features secure authentication, CRUD
+operations, and a modern, responsive UI with smooth animations.
 
-✅ Post Food for Donation
-Donors can add food with details like quantity, pickup location, and expiry date.
+---
 
-✅ Request System for Food Receivers
-Users can request available food & track the status of their requests.
+## Key Features
 
-✅ Real-time Food Status Update
-Food status changes dynamically based on donor acceptance and receiver actions.
+- **Food Donation System:** Logged-in users can add, manage, update, and delete
+  their food donations.
+- **Browse & Request Foods:** Anyone can explore available foods and request
+  them easily.
+- **Food Request Management:** Donors can accept or reject food requests in
+  real-time.
+- **Firebase Authentication:** Email/password and Google login with protected
+  private routes.
+- **MongoDB Integration:** All food and request data securely stored in MongoDB
+  Atlas.
+- **Responsive & Animated UI:** Optimized layout for mobile, tablet, and desktop
+  with Framer Motion animations.
 
-✅ Responsive & Modern UI
-Smooth UI with animations, mobile-friendly design, and user-friendly interface.
+---
 
-🚀 Technologies Used
+## Core Functionalities
 
-React + Vite
+### Home Page
 
-Tailwind CSS
+- Hero section with a clear call-to-action (“View All Foods”).
+- Dynamic **Featured Foods** section showing top 6 foods with the highest
+  servings.
+- Two static sections: **“How It Works”** and **“Our Mission”** for better user
+  engagement.
+- Smooth entry animations using **Framer Motion**.
 
-Firebase Authentication
+### Authentication (Firebase)
 
-Node.js & Express (Backend)
+- User registration with name, photo URL, email, and strong password validation.
+- Google Sign-In integration.
+- Real-time success/error toasts for all auth actions.
+- Redirects users to the intended route after login.
 
-MongoDB Database
+### Food Management (CRUD)
 
-Framer Motion Animations
+- **Add Food (Private):** Add new food info with image (via imgbb), quantity,
+  expiry date, and pickup location.
+- **Available Foods (Public):** View all foods marked as “Available.”
+- **Food Details (Private):** Full food info + option to request food.
+- **Manage My Foods (Private):** Update or delete foods with confirmation
+  prompts.
 
-📂 Project Setup
-1️⃣ Install dependencies
+### Food Request System
+
+- Users can submit a request with location, reason, and contact info.
+- Donors can **accept** or **reject** requests directly from the food details
+  page.
+- Auto-updates request and food status (e.g., to “Donated” when accepted).
+
+### Additional Features
+
+- Protected routes using Firebase JWT or middleware.
+- Elegant modals and alerts with **SweetAlert2**.
+- **404 Page** with creative design and a “Back to Home” button.
+
+## Dependencies
+
+**Frontend Dependencies:**
+
+- @tailwindcss/vite: ^4.1.17
+- aos: ^2.3.4
+- axios: ^1.13.2
+- daisyui: ^5.4.7
+- firebase: ^12.5.0
+- react: ^19.1.1
+- react-dom: ^19.1.1
+- react-hook-form: ^7.66.0
+- react-hot-toast: ^2.6.0
+- react-icons: ^5.5.0
+- react-router: ^7.9.5
+- sweetalert2: ^11.26.3
+- tailwindcss: ^4.1.17
+
+**Frontend Dev Dependencies:**
+
+- @eslint/js: ^9.36.0
+- @types/react: ^19.1.16
+- @types/react-dom: ^19.1.9
+- @vitejs/plugin-react: ^5.0.4
+- eslint: ^9.36.0
+- eslint-plugin-react-hooks: ^5.2.0
+- eslint-plugin-react-refresh: ^0.4.22
+- globals: ^16.4.0
+- vite: ^7.1.7
+
+**Backend Dependencies:**
+
+- express: ^4.x
+- mongodb: ^7.0.0
+- cors: ^2.x
+- dotenv: ^16.x
+- nodemon (for development): ^2.x
+
+---
+
+## Technologies Used
+
+| Category           | Tools & Libraries                                                                       |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| **Frontend**       | React.js, React Router DOM, TanStack Query, Axios, React Hook Form, Framer Motion / AOS |
+| **Backend**        | Node.js, Express.js                                                                     |
+| **Database**       | MongoDB Atlas                                                                           |
+| **Authentication** | Firebase Auth (Email/Password, Google Sign-In)                                          |
+| **Hosting**        | Netlify / Surge (Client), Vercel (Server)                                               |
+| **UI & Styling**   | Tailwind CSS, DaisyUI, SweetAlert2                                                      |
+| **Image Hosting**  | imgbb API                                                                               |
+
+---
+
+## Run Project Locally
+
+Follow these steps to run the project on your local machine:
+
+### **Server Setup**
+
+1. Clone the server repo:
+
+```bash
+-- Server
+git clone https://github.com/sohebakhter/plate-share-server.git
+cd plate-share-server
 npm install
-
-2️⃣ Start development server
+Create a .env file and add: MONGO_URI=your_mongodb_connection_string
+                            FIREBASE_API_KEY=your_firebase_api_key
 npm run dev
 
-🙌 Contribution
-
-Want to improve this project? Feel free to submit pull requests or create issues!
-
-📜 License
-
-This project is open-source and free to use.
+-- Client
+git clone https://github.com/sohebakhter/plate-share-client.git
+cd plate-share-client
+npm install
+Create a .env file (if needed) for Firebase config.
+npm run dev
+```
