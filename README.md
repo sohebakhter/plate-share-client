@@ -1,6 +1,6 @@
 # PlateShare — Community Food Sharing Platform
 
-![Plate Share Screenshot]()
+![Plate Share Screenshot](https://github.com/user-attachments/assets/83624c13-d31c-4dab-8232-43c48bd28a63)
 
 **Live Site:**
 [https://plateshare-client.netlify.app/](https://plateshare-client.netlify.app/)  
