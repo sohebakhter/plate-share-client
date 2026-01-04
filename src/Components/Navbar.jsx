@@ -66,7 +66,15 @@ const Navbar = () => {
               >
                 <li>
                   <NavLink
-                    to="/add-food"
+                    to="/dashboard"
+                    className="block w-full text-left px-4 py-2 hover:text-green-600"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/add-food"
                     className="block w-full text-left px-4 py-2 hover:text-green-600"
                   >
                     Add Food
@@ -74,7 +82,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/manage-foods"
+                    to="/dashboard/manage-foods"
                     className="block w-full text-left px-4 py-2 hover:text-green-600"
                   >
                     Manage My Foods
@@ -82,7 +90,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/my-requests"
+                    to="/dashboard/my-requests"
                     className="block w-full text-left px-4 py-2 hover:text-green-600"
                   >
                     My Food Requests

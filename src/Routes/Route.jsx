@@ -12,6 +12,9 @@ import UpdateFood from "../Components/UpdateFood";
 import Loading from "../Components/Loading";
 import Error404 from "../Components/Error404";
 import MyFoodRequests from "../Components/MyFoodRequests";
+import Dashboard from "../Dashboard/Dashboard";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import Profile from "../Dashboard/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -40,8 +43,15 @@ export const router = createBrowserRouter([
         path: "/food/:id",
         Component: FoodDetails,
       },
+    ],
+  },
+  {
+    path: "dashboard",
+    Component: DashboardLayout,
+    children: [
+      { index: true, element: <Dashboard></Dashboard> },
       {
-        path: "/add-food",
+        path: "add-food",
         element: (
           <PrivateRoute>
             <AddFood></AddFood>
@@ -49,7 +59,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manage-foods",
+        path: "manage-foods",
         element: (
           <PrivateRoute>
             <ManageMyFoods></ManageMyFoods>
@@ -57,7 +67,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/update-food/:id",
+        path: "update-food/:id",
         element: (
           <PrivateRoute>
             <UpdateFood></UpdateFood>
@@ -65,13 +75,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-requests",
+        path: "my-requests",
         element: (
           <PrivateRoute>
             <MyFoodRequests></MyFoodRequests>
           </PrivateRoute>
         ),
       },
+      { path: "profile", element: <Profile></Profile> },
     ],
   },
 ]);
