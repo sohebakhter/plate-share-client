@@ -4,3 +4,173 @@
 .active {
   @apply text-green-600;
 }
+
+/* Dark mode styles */
+.dark {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+}
+
+.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark .bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-700 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .shadow-lg,
+.dark .shadow-md,
+.dark .shadow-sm {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+/* Ensure proper contrast for form elements */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* Button styles for dark mode */
+.dark .btn-outline {
+  border-color: var(--text-secondary) !important;
+  color: var(--text-secondary) !important;
+}
+
+.dark .btn-outline:hover {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Navbar specific dark mode */
+.dark .navbar {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Card backgrounds */
+.dark .card {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Navbar dropdown dark mode */
+.dark .dropdown-content {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark .dropdown-content li a,
+.dark .dropdown-content li button {
+  color: var(--text-primary) !important;
+}
+
+.dark .dropdown-content li a:hover,
+.dark .dropdown-content li button:hover {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Sidebar menu dark mode */
+.dark .drawer-side .menu {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .drawer-side .menu li a {
+  color: var(--text-primary) !important;
+}
+
+.dark .drawer-side .menu li a:hover {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .drawer-side .menu li a.active {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Footer dark mode */
+.dark .footer {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .footer a {
+  color: var(--text-secondary) !important;
+}
+
+.dark .footer a:hover {
+  color: var(--text-primary) !important;
+}
+
+.dark .footer-title {
+  color: var(--text-primary) !important;
+}
+
+/* Dashboard specific table dark mode */
+.dark .bg-white .table {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .bg-white .table th {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark .bg-white .table td {
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark .bg-white .table-zebra tbody tr:nth-child(even) {
+  background-color: var(--bg-primary) !important;
+}
+
+.dark .bg-white .table-zebra tbody tr:nth-child(odd) {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Badge colors in dark mode */
+.dark .badge-success {
+  background-color: #10b981 !important;
+  color: white !important;
+}
+
+.dark .badge-warning {
+  background-color: #f59e0b !important;
+  color: white !important;
+}

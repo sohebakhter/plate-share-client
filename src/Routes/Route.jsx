@@ -15,6 +15,8 @@ import MyFoodRequests from "../Components/MyFoodRequests";
 import Dashboard from "../Dashboard/Dashboard";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Profile from "../Dashboard/Profile";
+import AboutUs from "../Components/AboutUs";
+import ContactUs from "../Components/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ export const router = createBrowserRouter([
       {
         path: "/food/:id",
         Component: FoodDetails,
+      },
+      {
+        path: "/about",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: ContactUs,
       },
     ],
   },

@@ -37,6 +37,14 @@ const DProfile = () => {
         >
           <li>
             <NavLink
+              to="/"
+              className="block w-full text-left px-4 py-2 text-gray-500 cursor-not-allowed"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/dashboard/profile"
               className="block w-full text-left px-4 py-2 text-gray-500 cursor-not-allowed"
             >

@@ -24,6 +24,20 @@ const Login = () => {
         toast.error("login failed");
       });
   };
+  const handleDemo = () => {
+    const email = "aa@bbbb.com";
+    const password = "123456Aa!";
+
+    signInUser(email, password)
+      .then(() => {
+        toast.success("Successfully Login");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error("login failed");
+      });
+  };
 
   const handleGoogleLogin = () => {
     googleSignIn()
@@ -67,6 +81,12 @@ const Login = () => {
             Login
           </button>
         </form>
+        <button
+          onClick={handleDemo}
+          className="mt-2 w-full py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all"
+        >
+          Demo User
+        </button>
 
         {/* Google */}
         <button
