@@ -37,18 +37,14 @@ export const router = createBrowserRouter([
         Component: AvailableFoods,
       },
       {
+        path: "/food/:id",
+        Component: FoodDetails,
+      },
+      {
         path: "/add-food",
         element: (
           <PrivateRoute>
             <AddFood></AddFood>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/food/:id",
-        element: (
-          <PrivateRoute>
-            <FoodDetails></FoodDetails>
           </PrivateRoute>
         ),
       },

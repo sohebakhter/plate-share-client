@@ -1,8 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, useNavigation } from "react-router";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import Loading from "./Loading";
+import { toast } from "react-toastify";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import "./styles.css";
+
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -17,11 +28,6 @@ const FoodDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // If not logged in, redirect to login
-    if (!user) {
-      navigate("/login");
-      return;
-    }
     axiosSecure.get(`/food/${id}`).then((data) => {
       setFood(data.data);
       setLoading(false);
@@ -49,6 +55,10 @@ const FoodDetails = () => {
   }
 
   const handleModalOn = () => {
+    if (!user) {
+      navigate("/login");
+      toast.error("You can't request, login first");
+    }
     showModalRef.current.showModal();
   };
 
@@ -58,6 +68,7 @@ const FoodDetails = () => {
 
   const handleRequestFood = (e) => {
     e.preventDefault();
+
     const location = e.target.location.value;
     const reason = e.target.reason.value;
     const contact = e.target.contact.value;
@@ -80,6 +91,7 @@ const FoodDetails = () => {
       showModalRef.current.close();
       const newReq = [...requests, data.data];
       setRequests(newReq);
+      toast.success("Request Successful");
     });
   };
 
@@ -114,50 +126,81 @@ const FoodDetails = () => {
   return (
     <div>
       {/* food details */}
-      <div className="max-w-4xl mx-auto p-5 md:p-10">
-        <div className="bg-white rounded-lg shadow-lg p-6 ">
-          <img
-            src={food.foodImage}
-            alt={food.foodName}
-            className="w-full h-80 object-cover rounded-lg mb-6"
-          />
-
-          <h2 className="text-3xl font-bold mb-2 text-green-700">
-            {food.foodName}
-          </h2>
-
-          <div className="flex items-center gap-3 mb-4">
-            <img
-              src={food.donorImage}
-              className="w-10 h-10 rounded-full border object-cover"
-              alt="donor"
-            />
-            <div>
-              <p className="font-semibold">{food.donorName}</p>
-              <p className="text-sm text-gray-500">{food.donorEmail}</p>
-            </div>
+      <div className="max-w-7xl mx-auto p-5 md:p-10">
+        <div className=" rounded-lg shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* one part */}
+          <div>
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 6500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <img
+                  src={food.foodImage}
+                  alt={food.foodName}
+                  className="w-full h-80 object-cover rounded-lg mb-6"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src={food.foodImage}
+                  alt={food.foodName}
+                  className="w-full h-80 object-cover rounded-lg mb-6"
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
 
-          <p>
-            <span className="font-semibold">Quantity:</span> {food.foodQuantity}
-          </p>
-          <p>
-            <span className="font-semibold">Pickup Location:</span>{" "}
-            {food.pickupLocation}
-          </p>
-          <p>
-            <span className="font-semibold">Expires:</span> {food.expireDate}
-          </p>
+          {/* two part */}
+          <div>
+            <h2 className="text-3xl font-bold mb-2 text-green-700">
+              {food.foodName}
+            </h2>
 
-          <p className="font-semibold mt-4">Additional Notes:</p>
-          <p className="text-gray-700 mb-6">{food.notes}</p>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src={food.donorImage}
+                className="w-10 h-10 rounded-full border object-cover"
+                alt="donor"
+              />
+              <div>
+                <p className="font-semibold">{food.donorName}</p>
+                <p className="text-sm text-gray-500">{food.donorEmail}</p>
+              </div>
+            </div>
 
-          <button
-            onClick={handleModalOn}
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold w-full md:w-auto"
-          >
-            Request Food
-          </button>
+            <p>
+              <span className="font-semibold">Quantity:</span>{" "}
+              {food.foodQuantity}
+            </p>
+            <p>
+              <span className="font-semibold">Pickup Location:</span>
+              {food.pickupLocation}
+            </p>
+            <p>
+              <span className="font-semibold">Expires:</span> {food.expireDate}
+            </p>
+
+            <p className="font-semibold mt-4">Additional Notes:</p>
+            <p className="text-gray-700 mb-6">{food.notes}</p>
+
+            <button
+              onClick={handleModalOn}
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold w-full md:w-auto"
+            >
+              Request Food
+            </button>
+          </div>
         </div>
       </div>
       {/* modal part for request food */}

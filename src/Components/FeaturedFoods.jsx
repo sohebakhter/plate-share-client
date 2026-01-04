@@ -27,7 +27,7 @@ const FeaturedFoods = () => {
         <h1 className="text-4xl text-green-600 font-bold mb-5">
           Featured Foods
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {foods.map((food) => (
             <FoodCard key={food._id} food={food} id={food._id}></FoodCard>
           ))}

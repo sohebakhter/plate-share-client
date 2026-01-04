@@ -1,4 +1,14 @@
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import "./styles.css";
+
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Banner = () => {
   return (
@@ -65,23 +75,78 @@ const Banner = () => {
           </div>
 
           {/* Right Image */}
-          <motion.div
-            initial={{
-              y: 200,
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 5500,
+              disableOnInteraction: false,
             }}
-            animate={{ y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0,
+            pagination={{
+              clickable: true,
             }}
-            className="flex justify-center"
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
           >
-            <img
-              src="https://i.ibb.co.com/LdZ0pXPH/image.png"
-              alt="Food Donation Banner"
-              className="rounded-3xl shadow-2xl w-full max-w-lg object-cover"
-            />
-          </motion.div>
+            <SwiperSlide>
+              <motion.div
+                initial={{
+                  y: 200,
+                }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0,
+                }}
+                className="flex justify-center"
+              >
+                <img
+                  src="https://i.ibb.co.com/LdZ0pXPH/image.png"
+                  alt="Food Donation Banner"
+                  className="rounded-3xl shadow-2xl w-full max-w-lg object-cover"
+                />
+              </motion.div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <motion.div
+                initial={{
+                  y: 200,
+                }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0,
+                }}
+                className="flex justify-center"
+              >
+                <img
+                  src="https://i.ibb.co.com/LdZ0pXPH/image.png"
+                  alt="Food Donation Banner"
+                  className="rounded-3xl shadow-2xl w-full max-w-lg object-cover"
+                />
+              </motion.div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <motion.div
+                initial={{
+                  y: 200,
+                }}
+                animate={{ y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 0,
+                }}
+                className="flex justify-center"
+              >
+                <img
+                  src="https://i.ibb.co.com/LdZ0pXPH/image.png"
+                  alt="Food Donation Banner"
+                  className="rounded-3xl shadow-2xl w-full max-w-lg object-cover"
+                />
+              </motion.div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
     </div>
